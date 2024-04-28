@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: tienda_app
+      POSTGRES_USER: felipe
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: gunicorn myproject.wsgi:application --workers 3 --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://felipe:1234@db:5432/tienda_app
+
+volumes:
+  postgres_data:
