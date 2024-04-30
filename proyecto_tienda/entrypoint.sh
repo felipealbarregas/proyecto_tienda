@@ -13,4 +13,4 @@ python manage.py migrate
 
 # Iniciar Gunicorn
 echo "Iniciando Gunicorn..."
-exec gunicorn --workers 3 --bind 0.0.0.0:8000 myproject.wsgi:application
+exec gunicorn --workers 3 --bind 0.0.0.0:8000 proyecto_tienda.wsgi:application
