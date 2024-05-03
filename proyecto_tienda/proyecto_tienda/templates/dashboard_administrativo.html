@@ -1,0 +1,11 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard Administrativo</h2>
+<h3>Productos con Stock Bajo</h3>
+<ul>
+    {% for producto in productos %}
+        <li>{{ producto.nombre }} - Stock actual: {{ producto.stock }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ cliente.user.get_full_name }}</h2>
+<p>Correo Electrónico: {{ cliente.user.email }}</p>
+<p>Teléfono: {{ cliente.telefono }}</p>
+<p>Dirección: {{ cliente.direccion }}</p>
+{% endblock %}
